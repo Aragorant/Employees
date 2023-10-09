@@ -17,8 +17,11 @@ try:
             sheet = wb['Sheet']
             wb.remove(sheet)
 
+        fieldnames = ["Прізвище", "Ім’я", "По батькові", "Стать", "Дата народження",
+                      "Посада", "Місто проживання", "Адреса проживання", "Телефон", "Email"]
+
         ws_all = wb.create_sheet(title="all")
-        ws_all.append(["№", "Прізвище", "Ім’я", "По батькові", "Дата народження", "Вік"])
+        ws_all.append(["№", "Прізвище", "Ім’я", "По батькові", "Стать", "Дата народження", "Посада", "Місто проживання", "Адреса проживання", "Телефон", "Email"])
 
         ws_younger_18 = wb.create_sheet(title="younger_18")
         ws_younger_18.append(["№", "Прізвище", "Ім’я", "По батькові", "Дата народження", "Вік"])
@@ -60,7 +63,7 @@ try:
                 row_number = count_older_70
 
             count_all += 1
-            ws_all.append([count_all, row["Прізвище"], row["Ім’я"], row["По батькові"], row["Дата народження"], age])
+            ws_all.append([count_all, row["Прізвище"], row["Ім’я"], row["По батькові"], row["Стать"], row["Дата народження"], row["Посада"], row["Місто проживання"], row["Адреса проживання"], row["Телефон"], row["Email"]])
 
             ws_category = wb[category]
             ws_category.append([row_number, row["Прізвище"], row["Ім’я"], row["По батькові"], row["Дата народження"], age])
