@@ -19,7 +19,7 @@ def calculate_statistics():
             gender_counts = {"male": 0, "female": 0}
 
             for row in csv_reader:
-                birthdate = datetime.strptime(row["Дата народження"], '%d.%m.%Y')
+                birthdate = datetime.strptime(row["Дата народження"], '%Y-%m-%d')
                 age = calculate_age(birthdate)
                 if age < 18:
                     age_category = "younger_18"

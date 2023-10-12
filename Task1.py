@@ -54,7 +54,7 @@ for i in range(total_records):
         "Ім’я": name,
         "По батькові": middle_name,
         "Стать": gender,
-        "Дата народження": birthdate.strftime('%d.%m.%Y'),
+        "Дата народження": birthdate,
         "Посада": fake.job(),
         "Місто проживання": fake.city(),
         "Адреса проживання": fake.address(),

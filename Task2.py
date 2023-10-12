@@ -17,9 +17,6 @@ try:
             sheet = wb['Sheet']
             wb.remove(sheet)
 
-        fieldnames = ["Прізвище", "Ім’я", "По батькові", "Стать", "Дата народження",
-                      "Посада", "Місто проживання", "Адреса проживання", "Телефон", "Email"]
-
         ws_all = wb.create_sheet(title="all")
         ws_all.append(["№", "Прізвище", "Ім’я", "По батькові", "Стать", "Дата народження", "Посада", "Місто проживання", "Адреса проживання", "Телефон", "Email"])
 
@@ -42,7 +39,7 @@ try:
         count_older_70 = 0
 
         for row in csv_reader:
-            birthdate = datetime.strptime(row["Дата народження"], '%d.%m.%Y')
+            birthdate = datetime.strptime(row["Дата народження"], '%Y-%m-%d')
             age = calculate_age(birthdate)
 
             if age < 18:
